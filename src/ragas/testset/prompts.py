@@ -27,7 +27,7 @@ reasoning_question_prompt = Prompt(
     input_keys=["question", "context"],
     output_key="output",
     output_type="str",
-    language="english",
+    language="chinese",
 )
 
 
@@ -58,7 +58,7 @@ multi_context_question_prompt = Prompt(
     input_keys=["question", "context1", "context2"],
     output_key="output",
     output_type="str",
-    language="english",
+    language="chinese",
 )
 
 conditional_question_prompt = Prompt(
@@ -85,7 +85,7 @@ conditional_question_prompt = Prompt(
     input_keys=["question", "context"],
     output_key="output",
     output_type="str",
-    language="english",
+    language="chinese",
 )
 
 
@@ -106,7 +106,7 @@ compress_question_prompt = Prompt(
     input_keys=["question"],
     output_key="output",
     output_type="str",
-    language="english",
+    language="chinese",
 )
 
 
@@ -130,7 +130,7 @@ conversational_question_prompt = Prompt(
     input_keys=["question"],
     output_key="output",
     output_type="json",
-    language="english",
+    language="chinese",
 )
 
 
@@ -166,7 +166,7 @@ question_answer_prompt = Prompt(
     input_keys=["context", "question"],
     output_key="answer",
     output_type="json",
-    language="english",
+    language="chinese",
 )
 
 keyphrase_extraction_prompt = Prompt(
@@ -204,7 +204,15 @@ keyphrase_extraction_prompt = Prompt(
 
 seed_question_prompt = Prompt(
     name="seed_question",
-    instruction="Generate a question that can be fully answered from given context. The question should be formed using topic",
+    instruction="""Generate a question that can be fully answered from given context. The question should be formed using the topic and the following background information. 
+    在生成问题的时候，把你想象成在阅读某办公园区管理公司的聊天记录，然后基于公司里不同工作角色的工作职责来总结这篇文档可以解决这些工作人员的什么问题。
+    有如下工作角色:
+    1.园区数字化部门总监，负责园区的总体数字化/信息化改造，以及AI&机器人产业生态的构建。
+    2.招商经理，负责把园区的空置房源尽快出租出去，并维护已经入驻的企业，他们需要深度了解企业客户的情况、需求、动态信息，以及相关政府政策与企业客户的关系。
+    3.科创部门，负责寻找合适的创业公司，进行投资孵化，关心政府政策在企业客户上的运用。
+    4.经营部门，负责基于当前园区的各类运营指标来评估今年去化率、空置率目标的运转情况以及跟踪各个项目的运行情况。
+    5.园区老板，负责总体园区的战略规划、工作安排、关心园区的运转情况以及各个部门的人效、工作结果达成情况.
+    在问题中一定要结合文档标题/内容包含限制词，包括年份/日期情况限制、地点范围、事业部名称、部门名称、公司名称等，避免与其他文档中的答案混淆""",
     examples=[
         {
             "context": "Photosynthesis in plants involves converting light energy into chemical energy, using chlorophyll and other pigments to absorb light. This process is crucial for plant growth and the production of oxygen.",
@@ -225,6 +233,7 @@ seed_question_prompt = Prompt(
     input_keys=["context", "keyphrase"],
     output_key="question",
     output_type="str",
+    language="chinese",
 )
 
 main_topic_extraction_prompt = Prompt(
@@ -284,7 +293,7 @@ find_relevant_context_prompt = Prompt(
     input_keys=["question", "contexts"],
     output_key="output",
     output_type="json",
-    language="english",
+    language="chinese",
 )
 
 
@@ -308,7 +317,7 @@ question_rewrite_prompt = Prompt(
     input_keys=["context", "question", "feedback"],
     output_key="output",
     output_type="str",
-    language="english",
+    language="chinese",
 )
 
 ### Filters
